@@ -33,6 +33,19 @@ function App() {
       console.log(error);
     }
   };
+  const createMsg = async (msgs, room) => {
+    try {
+      console.log(room);
+      await axios.post(
+        `https://coded-task-axios-be.herokuapp.com/rooms/msg/${room.id}`,
+        msgs
+      );
+      room.messages.push(msgs);
+      setRooms([...rooms]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const updateRoom = async (room) => {
     try {
       await axios.put(
@@ -61,7 +74,7 @@ function App() {
       <div className="main__chatbody">
         <Switch>
           <Route path="/room/:roomSlug">
-            <ChatRoom rooms={rooms} />
+            <ChatRoom rooms={rooms} createMsg={createMsg} />
           </Route>
           <Route exact path="/">
             <center>

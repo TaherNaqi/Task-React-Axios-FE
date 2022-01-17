@@ -12,7 +12,10 @@ function ChatRoom(props) {
   const handleChange = (event) => {
     setMsg({ ...msg, [event.target.name]: event.target.value });
   };
-  const handleSubmit = (event) => {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.createMsg(msg, room);
+  };
 
   return (
     <div className="main__chatcontent">

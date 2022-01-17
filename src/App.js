@@ -7,7 +7,6 @@ import { Route, Switch } from "react-router";
 import axios from "axios";
 function App() {
   const [rooms, setRooms] = useState([]);
-  console.log("🚀 ~ file: App.js ~ line 10 ~ App ~ rooms", rooms);
   useEffect(() => {
     fetchRooms();
   }, []);

@@ -50,8 +50,7 @@ function App() {
       await axios.delete(
         `http://coded-task-axios-be.herokuapp.com/rooms/${id}`
       );
-      let tempRooms = rooms.filter((room) => room.id !== id);
-      setRooms(tempRooms);
+      setRooms(rooms.filter((room) => room.id !== id));
     } catch (error) {
       console.log(error);
     }
